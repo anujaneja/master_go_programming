@@ -49,6 +49,17 @@ func sum_naked_return(nums ...int) (sum int) {
 	return
 }
 
+func searchItem(arr []string, term string) bool {
+	result := false
+	for _, v := range arr {
+		if v == term {
+			result = true
+			break
+		}
+	}
+	return result
+}
+
 func main() {
 	result := cube(3)
 	fmt.Println(result)
@@ -68,4 +79,12 @@ func main() {
 	fmt.Println("sum is", sum(1, 2, 3, 4, 5))
 
 	fmt.Println("sum_naked_return is", sum_naked_return(1, 2, 3, 4, 5))
+
+	fmt.Println("searchItem: ", searchItem([]string{"a", "b", "c", "A", "B"}, "C"))
+
+	animals := []string{"lion", "tiger", "bear"}
+	result1 := searchItem(animals, "bear")
+	fmt.Println(result1) // => true
+	result1 = searchItem(animals, "pig")
+	fmt.Println(result1) // => false
 }
